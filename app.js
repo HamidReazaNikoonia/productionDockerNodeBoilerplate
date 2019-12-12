@@ -58,6 +58,10 @@ mongoose.connection.on('error', (err) => {
   process.exit();
 });
 
+// mongoose.connection.once("open", () => {
+//   // db now open
+// })
+
 /**
  * Express configuration.
  */
@@ -254,9 +258,27 @@ if (process.env.NODE_ENV === 'development') {
 /**
  * Start Express server.
  */
+
+// process.on('unhandledRejection', err => {
+//   console.log('-----------');
+//   console.log(err);
+//   console.log('-----------');
+// })
+
+
+
 app.listen(app.get('port'), () => {
   console.log('%s App is running at http://localhost:%d in %s mode', chalk.green('✓'), app.get('port'), app.get('env'));
   console.log('  Press CTRL-C to stop\n');
 });
+
+
+// process.on('beforeExit', (code) => {
+//   console.log('Process beforeExit event with code: ', code);
+// });
+
+// process.on('exit', (code) => {
+//   console.log('Process exit event with code: ', code);
+// });
 
 module.exports = app;

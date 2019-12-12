@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "postinstall": "npm rebuild node-sass",
-    "start": "node app.js",
+    "start": "pm2 start ecosystem.config.js",
     "test": "nyc mocha --timeout=10000 --exit",
     "lint": "eslint \"**/*.js\""
   },
@@ -85,6 +85,7 @@
     "eslint-plugin-import": "^2.18.2",
     "mocha": "^6.2.2",
     "nyc": "^14.1.1",
+    "pm2": "^4.2.0",
     "sinon": "^7.5.0",
     "sinon-mongoose": "^2.3.0",
     "supertest": "^5.0.0-0"
